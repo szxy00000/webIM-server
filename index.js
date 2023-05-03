@@ -54,12 +54,12 @@ const io = new Server(httpServer, {
   },
 });
 
-const list = []
+// const list = []
 io.on('connection', socket => {
   socket.on('chat', async arg => {
-    list.push(arg);
-    io.emit('sync', list);
-    return;
+    // list.push(arg);
+    // io.emit('sync', list);
+    // return;
     chats.insertOne(arg).then(() => {
       getList().then(res => {
         io.emit('sync', res);
