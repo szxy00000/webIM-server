@@ -1,6 +1,6 @@
-const { graphql, GraphQLSchema, GraphQLObjectType, GraphQLList, GraphQLString, GraphQLInt } = require('graphql');
+import { graphql, GraphQLSchema, GraphQLObjectType, GraphQLList, GraphQLString, GraphQLInt } from 'graphql';
 
-module.exports = async (list, source) => {
+export default async (list: Object[], source: string) => {
   const UserType = new GraphQLObjectType({
     name: 'UserType',
     fields: {

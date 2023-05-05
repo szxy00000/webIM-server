@@ -1,10 +1,10 @@
-const Koa = require("koa");
-const bodyParser = require('koa-bodyparser');
-const { createServer } = require("http");
-const { Server } = require("socket.io");
-const mongo = require("koa-mongo");
-const routers = require('./src/router');
-const cors = require('@koa/cors');
+import Koa from "koa";
+import bodyParser from 'koa-bodyparser';
+import { createServer } from "http";
+import { Server } from "socket.io";
+import mongo from "koa-mongo";
+import routers from './src/router';
+import cors from '@koa/cors';
 
 const app = new Koa();
 
@@ -26,7 +26,7 @@ app.use(async (ctx, next) => {
     ctx.io = io;
     await next();
 })
-routers.forEach(router => {
+routers.forEach((router: any) => {
     app.use(router.routes()).use(router.allowedMethods());
 })
 

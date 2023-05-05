@@ -1,5 +1,5 @@
-const graph = require('../graphql/chat')
+import graph from '../graphql/chat';
 
-exports.chatHistory = async ctx => {
+export const chatHistory = async (ctx: any) => {
   return graph(await ctx.mongo.db('test').collection('chat').find().toArray(), ctx.query.query)
 }

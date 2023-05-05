@@ -11,9 +11,20 @@
     "socket.io": "^4.6.1"
   },
   "scripts": {
-    "dev": "node index.js",
+    "dev": "ts-node app.ts"
   },
   "repository": "https://github.com/szxy00000/webIM-server.git",
   "author": "Nemo",
   "license": "MIT",
+  "devDependencies": {
+    "@types/http-status-codes": "^1.2.0",
+    "@types/koa": "^2.13.6",
+    "@types/koa__cors": "^4.0.0",
+    "@types/koa__router": "^12.0.0",
+    "@types/koa-bodyparser": "^4.3.10",
+    "@types/koa-mongo": "^1.9.4",
+    "@types/koa-router": "^7.4.4",
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.1"
+  }
 }
