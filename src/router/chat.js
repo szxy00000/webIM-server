@@ -1,5 +1,6 @@
 const Router = require('@koa/router');
 const router = new Router;
+const { chatHistory } = require('../controller/chat');
 
 router.post('/chat', async (ctx, next) => {
     const msg = ctx.request.body;
@@ -9,7 +10,7 @@ router.post('/chat', async (ctx, next) => {
 })
 
 router.get('/chatHistory', async (ctx, next) => {
-    ctx.body = await ctx.mongo.db('test').collection('chat').find().toArray();
+    ctx.body = await chatHistory(ctx);
 })
 
 module.exports = router;
