@@ -5,6 +5,7 @@ import { Server } from "socket.io";
 import mongo from "koa-mongo";
 import routers from './src/router';
 import cors from '@koa/cors';
+import Router from '@koa/router';
 
 const app = new Koa();
 
@@ -26,7 +27,7 @@ app.use(async (ctx, next) => {
     ctx.io = io;
     await next();
 })
-routers.forEach((router: any) => {
+routers.forEach((router: Router) => {
     app.use(router.routes()).use(router.allowedMethods());
 })
 

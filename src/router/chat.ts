@@ -1,7 +1,7 @@
 import Router from '@koa/router';
 import { chatHistory } from '../controller/chat';
 
-const router = new Router;
+const router = new Router();
 
 router.post('/chat', async (ctx, next) => {
     const msg = ctx.request.body;
@@ -12,10 +12,6 @@ router.post('/chat', async (ctx, next) => {
 
 router.get('/chatHistory', async (ctx, next) => {
     ctx.body = await chatHistory(ctx);
-})
-
-router.get('/nemo', async (ctx, next) => {
-    ctx.body = 'await chatHistory(ctx);'
 })
 
 export default router;
