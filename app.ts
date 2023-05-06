@@ -6,6 +6,7 @@ import mongo from "koa-mongo";
 import routers from './src/router';
 import cors from '@koa/cors';
 import Router from '@koa/router';
+import staticServ from "koa-static";
 
 const app = new Koa();
 
@@ -30,5 +31,7 @@ app.use(async (ctx, next) => {
 routers.forEach((router: Router) => {
     app.use(router.routes()).use(router.allowedMethods());
 })
+
+app.use(staticServ("./static"));
 
 httpServer.listen(7777);
